@@ -1,6 +1,10 @@
 import { Schema, model } from "mongoose";
 
 const propertySchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
