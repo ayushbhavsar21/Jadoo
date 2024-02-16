@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import './Getstarted.css'
+import {useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useAuth } from '../contexts/AuthContext';
 
 function Getstarted() {
     const [isSignUp, setIsSignUp] = useState(true);
+
+    const {storeTokenInLS} = useAuth;
+    const navigate = useNavigate();
 
     const toggleMode = () => {
       setIsSignUp(!isSignUp);
     };
 
     const [user, setUser] = useState({
-      username: "",
+      userName: "",
+      email: "",
+      password: "",
+    });
+
+    const [user2, setUser2] = useState({
       email: "",
       password: "",
     });
@@ -21,7 +32,84 @@ function Getstarted() {
        ...user,
        [name]: value,
       })
- }
+    }
+
+    const handleInput2= (e)=>{
+      let name = e.target.name;
+      let value = e.target.value;
+      setUser2({
+       ...user2,
+       [name]: value,
+      })
+    }
+
+      const handleSignIn = async(e)=>{
+        e.preventDefault();
+
+        try {
+            const response = await fetch(`http://localhost:8000/api/v1/users/login`,{
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user2)
+        })
+
+        console.log(response);
+
+        if(response.ok){
+
+            const res = await response.json();
+
+            setUser({  email: "", password: "" })
+
+            toast.success(res.message);
+            navigate("/");
+        }
+        else{
+            const errorResponse = await response.json();
+            toast.error(errorResponse.message);
+        }
+
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+    const handleRegister = async (e) => {
+      e.preventDefault();
+
+      try {
+          const response = await fetch(`http://localhost:8000/api/v1/users/register`, {
+
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(user)
+          });
+
+          if (response.ok) {
+
+              const res = await response.json();
+
+              setUser({ userName: "", email: "", password: "" })
+
+              toast.success(res.message);
+
+              navigate("/");
+          }
+          else{
+              const erroMessage = await response.json();
+              toast.error(erroMessage.message);
+          }
+
+      } catch (error) {
+          console.log(error);
+      }
+    };
+  
 
   return (
     <div className='body relative bottom-[10vh]' >
@@ -32,13 +120,13 @@ function Getstarted() {
         <div className={`container ${isSignUp ? 'right-panel-active' : ''}`}>
           <div className="form-container sign-up-container">
             {isSignUp && (
-              <form className="sign">
+              <form className="sign" onSubmit={handleRegister}>
                 <h1 className="font-bold mb-2">Create Account</h1>
 
                 <span className="text-[12px]">or use your email for registration</span>
                 <input className="signInput" type="text" placeholder="Name"
                   name="userName"
-                  value={user.username}
+                  value={user.userName}
                   onChange={handleInput}
                 />
 
@@ -64,20 +152,20 @@ function Getstarted() {
           </div>
           <div className="form-container sign-in-container">
             {!isSignUp && (
-              <form className="sign">
+              <form className="sign" onSubmit={handleSignIn}>
                 <h1 className="font-bold m-0">Sign in</h1>
 
                 <span className="text-[12px]">or use your account</span>
                 < input className="signInput" type="email" placeholder="Email"
                   name="email"
-                  value={user.email}
-                  onChange={handleInput}
+                  value={user2.email}
+                  onChange={handleInput2}
                 />
 
                 <input className="signInput" type="password" placeholder="Password"
                   name="password"
-                  value={user.password}
-                  onChange={user.password}
+                  value={user2.password}
+                  onChange={handleInput2}
                 />
 
 
@@ -112,4 +200,4 @@ function Getstarted() {
   )
 }
 
-export default Getstarted
+export default Getstarted;

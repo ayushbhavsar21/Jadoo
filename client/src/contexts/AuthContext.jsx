@@ -36,8 +36,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(null);
             }
         } catch (error) {
-            console.error("Error in verifyJWT middleware:", error);
-            throw new ApiError(401, error?.message || "Invalid access token!!");
+            console.log(error);
         } finally {
             setLoading(false);  
         }
