@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Getstarted from './pages/Getstarted';
 import Ownerpage from './Owner/Ownerpage';
 import PanoramaViewer from './PanaromaViewer/Panaroma';
+import LogOut from './components/LogOut';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/Ownerpage" element={<Ownerpage/>} />
       <Route path="/Getstarted" element={<Getstarted/>} />
       <Route path="/Pano" element={<PanoramaViewer/>} />
+      <Route path="/Logout" element={<LogOut />} />
      </Routes>
      <Footer/>
     </BrowserRouter>

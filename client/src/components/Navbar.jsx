@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Hamburger from "../assets/Hamburger.png";
+import { useAuth } from '../contexts/AuthContext';
+import LogOut from './LogOut';
 
 function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
@@ -7,6 +9,8 @@ function Navbar() {
     const handleClick = () => {
         setShowMenu(!showMenu);
     };
+
+    const {isLoggedIn} = useAuth();
 
     return (
         <div className=' bg-white sticky top-2 backdrop-blur-lg backdrop-brightness-75 z-[100]  mx-auto w-[95vw] rounded-xl'>
@@ -16,7 +20,11 @@ function Navbar() {
                     <div className='hover:scale-110'><a href="/">Home</a></div>
                     <div className='hover:scale-110'><a href="/Tenant">For Tenants</a></div>
                     <div className='hover:scale-110'><a href="/">For Owners</a></div>
-                    <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Getstarted">Get Started</a></button></div>
+                    {isLoggedIn ? (
+                        <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Logout">Logout</a></button></div>
+                    ):(
+                        <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Getstarted">Get Started</a></button></div>
+                    )}
                 </div>
                 <div className='md:hidden '><button onClick={handleClick} className='text-white rounded-[50%]'><img className='h-[36px] w-[36px]' src={Hamburger} alt="Menu" /></button></div>
             </div>

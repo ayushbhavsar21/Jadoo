@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 function Getstarted() {
     const [isSignUp, setIsSignUp] = useState(true);
 
-    const {storeTokenInLS} = useAuth;
+    const {storeTokenInLS} = useAuth();
     const navigate = useNavigate();
 
     const toggleMode = () => {
@@ -62,6 +62,8 @@ function Getstarted() {
 
             const res = await response.json();
 
+            storeTokenInLS(res.data.accessToken);
+
             setUser({  email: "", password: "" })
 
             toast.success(res.message);
@@ -75,7 +77,7 @@ function Getstarted() {
         } catch (error) {
           console.log(error);
         }
-      }
+    }
 
     const handleRegister = async (e) => {
       e.preventDefault();
@@ -95,6 +97,7 @@ function Getstarted() {
               const res = await response.json();
 
               setUser({ userName: "", email: "", password: "" })
+              storeTokenInLS(res.data.accessToken);
 
               toast.success(res.message);
 
