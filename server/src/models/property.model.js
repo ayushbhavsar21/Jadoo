@@ -14,7 +14,7 @@ const propertySchema = new Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     size: {
@@ -32,7 +32,7 @@ const propertySchema = new Schema({
         default: 'rent', 
     },
     area: {
-        type: Number, 
+        type: String, 
         required: true, 
         unique: true, 
         trim: true, 
@@ -42,7 +42,7 @@ const propertySchema = new Schema({
         required: true
     },
     contact: {
-        type: Number, 
+        type: String, 
         required: true, 
         unique: true, 
         trim: true,  
