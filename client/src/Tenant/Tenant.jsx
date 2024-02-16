@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from '../assets/Tenantbg.jpeg'
 import search from '../assets/search.png'
+import { useAuth } from '../contexts/AuthContext'
+
 function Tenant() {
+
+    const {token} = useAuth;
+
+    const [properties, setProperties] = useState([]);
+    
+    const getProperties = async()=>{
+        try {
+            const response = await fetch("http://localhost:8000/api/v1/property/getAllProperties",{
+                method: "GET",
+                headers: {
+                    'Authorization': `${token}`
+                }
+            })
+
+            const res = response.json();
+            setProperties(res.data);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(()=>{
+        getProperties();
+    },[])
+
     return (
         <>
             <div className=' flex flex-col bg-tertiary '>
@@ -18,6 +46,8 @@ function Tenant() {
                         placeholder=' Search .........'
                     />
                 </div>
+
+               
 
             </div>
 

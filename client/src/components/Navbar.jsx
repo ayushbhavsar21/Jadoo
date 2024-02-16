@@ -19,7 +19,7 @@ function Navbar() {
                 <div className='md:flex h-[10vh] justify-center items-center gap-12 hidden'>
                     <div className='hover:scale-110'><a href="/">Home</a></div>
                     <div className='hover:scale-110'><a href="/Tenant">For Tenants</a></div>
-                    <div className='hover:scale-110'><a href="/">For Owners</a></div>
+                    <div className='hover:scale-110'><a href="/PropertyForm">For Owners</a></div>
                     {isLoggedIn ? (
                         <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Logout">Logout</a></button></div>
                     ):(

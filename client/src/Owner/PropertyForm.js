@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import bg from '../assets/Ownerbg.jpg'
+import {toast} from 'react-toastify';
+import {useNavigate} from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 function PropertyForm() {
 
@@ -13,10 +16,13 @@ function PropertyForm() {
         type: "",
         area: "",
         amenities:"",
-        contact:""
+        contact:"",
+        VRImage:""
     });
-  
 
+    const {token} = useAuth();
+
+    const navigate = useNavigate();
   
     const handleInput= (e)=>{
         let name = e.target.name;
@@ -27,8 +33,44 @@ function PropertyForm() {
         })
     }
 
+    const handleSubmit = async(e)=>{
+
+        e.preventDefault();
+
+        try {
+            const response = await fetch(`http://localhost:8000/api/v1/property/addProperty`,{
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `${token}`
+            },
+            body: JSON.stringify(property)
+        })
+
+        console.log(response);
+
+        if(response.ok){
+
+            const res = await response.json();
+            
+            toast.success(res.message);
+            navigate("/");
+        }
+        else{
+            const errorResponse = await response.json();
+            toast.error(errorResponse.message);
+        }
+
+        } catch (error) {
+          console.log(error);
+        }
+    }
+
     return (
-        <div className='bg-tertiary'>
+        <form onSubmit={handleSubmit}>
+
+<div className='bg-tertiary'>
             <div className='relative bottom-[10vh]  bg-tertiary flex w-[full] ' >
                 <div className='w-[10%] bg-tertiary ' ></div>
                 <div className='l-[5vw] w-[90%] rounded-bl-[10vh]  bg-tertiary ' >
@@ -50,27 +92,32 @@ function PropertyForm() {
                     <h1 className='text-[20px] font-semibold mb-2' >Title</h1>
                     <input type="text" placeholder='Title' name='title' value={property.title} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100 ' />
                     <h1 className='text-[20px] font-semibold mb-2' >Price</h1>
-                    <input type="Number" placeholder='Price' name='price' value={property.price} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100'/>
+                    <input type="text" placeholder='Price' name='price' value={property.price} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100'/>
                     <h1 className='text-[20px] font-semibold mb-2' >Location</h1>
                     <input type="text" placeholder='Location' name='location' value={property.location} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Size</h1>
-                    <input type="Number" placeholder='Size' name='size' value={property.size} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
+                    <input type="text" placeholder='Size' name='size' value={property.size} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Type</h1>
                     <input type="text" placeholder='Rent/Sell' name='type' value={property.type} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Area</h1>
-                    <input type="Number" placeholder='Area' name='area' value={property.area} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
+                    <input type="text" placeholder='Area' name='area' value={property.area} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Amenities</h1>
                     <input type="text" placeholder='Amenities' name='amenities' value={property.amenities} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Description</h1>
-                    <input type="text" placeholder='Description' name='description' value={property.description} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
+                    <input type="text" placeholder='Description' name='description' value={property.description} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     
                 </div>
                 <div className=' flex flex-col w-[70%]  ' >
                     <h1 className='text-[22px] border-b-[2px] border-black font-bold mb-8 ' >Add Photos</h1>
-                    <input type='file' />
+                    <input type='file'  name="VRImage" value={property.VRImage} onChange={handleInput} />
                 </div>
+
+                <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button>Get Started</button></div>
             </div>
         </div>
+
+        </form>
+        
     )
 }
 
