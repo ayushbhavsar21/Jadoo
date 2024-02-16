@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import img from '../assets/Tenantbg.jpeg'
-import search from '../assets/search.png'
 import { useAuth } from '../contexts/AuthContext'
+import Tenantcard from './Tenantcard'
 
 function Tenant() {
 
@@ -32,27 +32,23 @@ function Tenant() {
 
     return (
         <>
-            <div className=' flex flex-col bg-tertiary '>
-                <div className='flex ' >
-                    <div className='w-[8%] bg-tertiary ' ></div>
-                    <img className=' w-[92%]  bg-tertiary  rounded-bl-[5vw]  ' src={img} alt="" />
+           <div className=' flex flex-col bg-tertiary '>
+                <div className='flex  justify-end' >
+                    <img className=' md:w-[92%] w-[100%] h-[50vh] bg-tertiary  md:rounded-bl-[5vw]  ' src={img} alt="" />
+                    
                 </div>
-                <div className="absolute top-[50vh] left-[20vw]  h-[8vh] w-[50vw] rounded-full bg-gray-400 text-black  border-[2px] flex items-cente border-black ">
-                    <div className="  bg-gray-300 w-[4vw]  rounded-full p-[10px] border border-black  ">
-                        <img className=' ' src={search} alt="" /></div>
-                    <input
+               
+                <div className='relative bottom-40 mx-auto'>
+                <input
                         type="text"
-                        className=" w-[45vw] bg-gray-400 text-[22px] placeholder-black text-black m-1 mr-5  pl-[5vw] "
+                        className=" sm:w-[45vw] w-[90vw] h-12 rounded-2xl bg-gray-300 text-[20px] placeholder-black text-black"
                         placeholder=' Search .........'
                     />
                 </div>
-
-               
-
             </div>
 
-            <div className='h-[30vh] bg-tertiary '  >
-
+            <div className='bg-tertiary'  >
+               <Tenantcard/>
             </div>
         </>
     )
