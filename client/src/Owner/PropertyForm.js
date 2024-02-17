@@ -1,71 +1,85 @@
-import React, { useState } from 'react'
-import bg from '../assets/Ownerbg.jpg'
-import {toast} from 'react-toastify';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import bg from '../assets/Ownerbg.jpg';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 function PropertyForm() {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        console.log(e.target.files[0]);
+        setSelectedImage(e.target.files[0]);
+    };
 
     const [property, setProperty] = useState({
         name: "",
-        title: "", 
+        title: "",
         description: "",
         location: "",
         price: "",
         size: "",
         type: "",
         area: "",
-        amenities:"",
-        contact:"",
-        VRImage:""
+        amenities: "",
+        contact: "",
     });
 
-    const {token} = useAuth();
+    const { token } = useAuth();
 
     const navigate = useNavigate();
-  
-    const handleInput= (e)=>{
+
+    const handleInput = (e) => {
         let name = e.target.name;
         let value = e.target.value;
         setProperty({
-         ...property,
-         [name]: value,
-        })
-    }
+            ...property,
+            [name]: value,
+        });
+    };
 
-    const handleSubmit = async(e)=>{
-
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/property/addProperty`,{
-            method: "POST",
-            crossDomain: true,
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `${token}`
-            },
-            body: JSON.stringify(property)
-        })
+            const formData = new FormData();
 
-        console.log(response);
+            formData.append("name", property.name);
+            formData.append("title", property.title);
+            formData.append("description", property.description);
+            formData.append("location", property.location);
+            formData.append("price", property.price);
+            formData.append("size", property.size);
+            formData.append("type", property.type);
+            formData.append("area", property.area);
+            formData.append("amenities", property.amenities);
+            formData.append("contact", property.contact);
+            formData.append("VRImage", selectedImage);
 
-        if(response.ok){
+            const response = await fetch(`http://localhost:8000/api/v1/property/addProperty`, {
+                method: "POST",
+                crossDomain: true,
+                headers: {
+                    'Authorization': `${token}`,
+                },
+                body: formData,
+            });
 
-            const res = await response.json();
-            
-            toast.success(res.message);
-            navigate("/");
-        }
-        else{
-            const errorResponse = await response.json();
-            toast.error(errorResponse.message);
-        }
+            console.log(response);
+
+            if (response.ok) {
+                const res = await response.json();
+                toast.success(res.message);
+                navigate("/");
+            } else {
+                const errorResponse = await response.json();
+                toast.error(errorResponse.message);
+            }
 
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -109,7 +123,7 @@ function PropertyForm() {
                 </div>
                 <div className=' flex flex-col w-[70%]  ' >
                     <h1 className='text-[22px] border-b-[2px] border-black font-bold mb-8 ' >Add Photos</h1>
-                    <input type='file'  name="VRImage" value={property.VRImage} onChange={handleInput} />
+                    <input type="file" onChange={handleImageChange} />
                 </div>
 
                 <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button>Get Started</button></div>
@@ -117,8 +131,10 @@ function PropertyForm() {
         </div>
 
         </form>
-        
-    )
+
+    );
 }
 
-export default PropertyForm
+export default PropertyForm;
+
+

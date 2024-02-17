@@ -6,7 +6,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const addProperty = asyncHandler(async(req,res)=>{
     
-    const { title, description, location, price, area, amenities, contact, size, type} = req.body;
+    const { name, title, description, location, price, area, amenities, contact, size, type} = req.body;
 
     const user = req.user;
 
@@ -48,6 +48,7 @@ const addProperty = asyncHandler(async(req,res)=>{
 
     const property = await Property.create({
         title, 
+        name,
         description,
         location,
         price,
