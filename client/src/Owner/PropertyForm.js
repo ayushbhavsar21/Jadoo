@@ -108,7 +108,9 @@ function PropertyForm() {
                     <h1 className='text-[20px] font-semibold mb-2' >Price</h1>
                     <input type="text" placeholder='Price' name='price' value={property.price} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100'/>
                     <h1 className='text-[20px] font-semibold mb-2' >Location</h1>
-                    <input type="text" placeholder='Location' name='location' value={property.location} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
+                    <input type="text" placeholder='Location/Address' name='location' value={property.location} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
+                    <h1 className='text-[20px] font-semibold mb-2' >Pincode</h1>
+                    <input type="text" placeholder='Pincode' name='pincode' value={property.pincode} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Size</h1>
                     <input type="text" placeholder='Size' name='size' value={property.size} onChange={handleInput} className='mb-5 h-[5vh] border-b-[1px] border-black bg-gray-100' />
                     <h1 className='text-[20px] font-semibold mb-2' >Type</h1>
