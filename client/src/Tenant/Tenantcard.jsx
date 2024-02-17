@@ -34,11 +34,13 @@ function Tenantcard({props}) {
               <strong className="md:ml-2">Price:</strong>&nbsp;$120,005
             </div>
           </div>
+          <p>Adress: {props.location}</p>
           <div className='pb-4'>
           <TextToSpeech text={props.description}/>
           </div>
           
           <div className='flex gap-4'>
+          <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>view in map</button>
             <button onClick={togglePanorama} className='px-2 bg-blue-500 py-2 rounded-md text-white hover:bg-blue-400'>View AR</button>
             <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>Buy</button>
           </div>
