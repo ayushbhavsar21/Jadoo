@@ -5,7 +5,7 @@ import Tenantcard from './Tenantcard'
 
 function Tenant() {
 
-    const {token} = useAuth;
+    const {token} = useAuth();
 
     const [properties, setProperties] = useState([]);
     
@@ -17,8 +17,8 @@ function Tenant() {
                     'Authorization': `${token}`
                 }
             })
-
-            const res = response.json();
+            const res = await response.json();
+            console.log(res);
             setProperties(res.data);
 
         } catch (error) {
@@ -48,7 +48,12 @@ function Tenant() {
             </div>
 
             <div className='bg-tertiary'  >
-               <Tenantcard/>
+              {properties.map(item=>(
+                <Tenantcard 
+                key={item.id}
+                props={item}
+                />
+              ))}
             </div>
         </>
     )
