@@ -38,8 +38,8 @@ function Payment() {
 
     return (
       <div className="App h-screen flex flex-col items-center justify-center bg-primary">
-      <h2 className="text-3xl text-white font-bold mb-4">Subscribe for Mentorship Sessions</h2>
-      <p className="text-gray-600 mb-6">Enter the amount and proceed with the payment for mentorship sessions.</p>
+      <h2 className="text-3xl font-bold mb-4">Get your dream home at an affordable price.</h2>
+      <p className="text-gray-600 mb-6">Enter the amount and get your dream home now.</p>
       <div className=" rounded-md">
         <input
           type="text"
