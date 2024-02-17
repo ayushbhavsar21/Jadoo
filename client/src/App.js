@@ -11,6 +11,8 @@ import PropertyForm from './Owner/PropertyForm';
 import DynamicGoogleMap from './components/Map';
 import LocationForm from './components/LocationForm';
 import Payment from './components/Payment';
+import DynamicGoogleMap1 from './components/Map1';
+import DynamicGoogleMap2 from './components/Map2';
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
       <Route path='/Maps' element={<DynamicGoogleMap/>}/>
       <Route path='/Location' element={<LocationForm/>}/>
       <Route path='/Payment' element={<Payment/>}/>
+      <Route path='/Map1' element={<DynamicGoogleMap1/>}/>
+      <Route path='/Map2' element={<DynamicGoogleMap2/>}/>
      </Routes>
      <Footer/>
     </BrowserRouter>

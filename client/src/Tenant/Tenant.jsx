@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import img from '../assets/Tenantbg.jpeg'
 import { useAuth } from '../contexts/AuthContext'
 import Tenantcard from './Tenantcard'
+import Tenantcard1 from './Tenantcard1';
 
 function Tenant() {
 
@@ -48,6 +49,8 @@ function Tenant() {
                 </div>
             </div>
 
+            <Tenantcard1/>
+            
             <div className='bg-tertiary'  >
               {properties.filter((tenant) => {
           const searchLowerCase = search.toLowerCase();
