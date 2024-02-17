@@ -3,7 +3,7 @@ import img from '../assets/Tenantbg.jpeg'
 import { useAuth } from '../contexts/AuthContext'
 import Tenantcard from './Tenantcard'
 import Tenantcard1 from './Tenantcard1';
-
+import Tenantcard2 from './Tenantcard2';
 function Tenant() {
 
     const {token} = useAuth();
@@ -49,7 +49,6 @@ function Tenant() {
                 </div>
             </div>
 
-            <Tenantcard1/>
             
             <div className='bg-tertiary'  >
               {properties.filter((tenant) => {
@@ -70,6 +69,8 @@ function Tenant() {
                 props={item}
                 />
               ))}
+            <Tenantcard1/>
+            <Tenantcard2/>
             </div>
         </>
     )
