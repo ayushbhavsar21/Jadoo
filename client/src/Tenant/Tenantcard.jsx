@@ -14,7 +14,7 @@ function Tenantcard({props}) {
     <div className='w-[90vw] bg-tertiary flex justify-center py-8 mx-auto'>
       <div className='sm:w-85vw w-95vw p-4 bg-white rounded-3xl flex flex-col justify-center gap-8 items-center xl:h-400px font-playfair shadow-2xl xl:flex-row h-auto'>
         <div className='lg:w-35% sm:w-60% w-95% rounded-3xl flex items-center justify-start'>
-          <img src={props.VRImage} className='object-cover rounded-3xl' alt="" />
+          <img src={props.VRImage} className='h-[350px] w-[380px] rounded-3xl' alt="" />
         </div>
         <div className='xl:w-58% w-90% flex flex-col justify-center items-center xl:justify-start  gap-4'>
           <p className='text-xl'>₹{props.price}</p>
