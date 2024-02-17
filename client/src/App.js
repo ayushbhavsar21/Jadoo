@@ -10,6 +10,7 @@ import LogOut from './components/LogOut';
 import PropertyForm from './Owner/PropertyForm';
 import DynamicGoogleMap from './components/Map';
 import LocationForm from './components/LocationForm';
+import Payment from './components/Payment';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/Logout" element={<LogOut />} />
       <Route path='/Maps' element={<DynamicGoogleMap/>}/>
       <Route path='/Location' element={<LocationForm/>}/>
+      <Route path='/Payment' element={<Payment/>}/>
      </Routes>
      <Footer/>
     </BrowserRouter>
