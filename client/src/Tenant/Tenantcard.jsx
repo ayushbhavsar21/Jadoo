@@ -46,15 +46,15 @@ function Tenantcard({props}) {
           </div>
           
           <div className='flex w-full justify-between '>
-            <div>
+            <a href="/Maps"><div>
             <button className='flex items-center'>
              <img src={googlemap} alt="" />
              <p>View Location in Map</p>
             </button>
-            </div>
+            </div></a>
             <div className='gap-4 flex'>
             <button onClick={togglePanorama} className='px-2 bg-blue-500 py-2 rounded-md text-white hover:bg-blue-400'>View AR</button>
-            <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>Buy</button>
+            <a href="/Payment"><button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>Buy</button></a>
             </div>
         
           </div>
