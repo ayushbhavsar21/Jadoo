@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Panorama from '../PanaromaViewer/Panaroma';
 import logo from "../assets/icons8-price-30.png";
 import logo1 from "../assets/icons8-area-chart-30.png";
-
+import TextToSpeech from '../components/TextToSpeech';
 function Tenantcard({props}) {
   const [showPanorama, setShowPanorama] = useState(false);
 
@@ -16,7 +16,7 @@ function Tenantcard({props}) {
         <div className='lg:w-35% sm:w-60% w-95% rounded-3xl flex items-center justify-start'>
           <img src={props.VRImage} className='h-[350px] w-[380px] rounded-3xl' alt="" />
         </div>
-        <div className='xl:w-58% w-90% flex flex-col justify-center items-center xl:justify-start  gap-4'>
+        <div className='xl:w-58% w-90% flex flex-col justify-start items-start xl:justify-start gap-4'>
           <p className='text-xl'>₹{props.price}</p>
           <p className='text-xl font-semibold'>{props.title}</p>
 
@@ -34,8 +34,10 @@ function Tenantcard({props}) {
               <strong className="md:ml-2">Price:</strong>&nbsp;$120,005
             </div>
           </div>
-
-          <p>{props.description}</p>
+          <div className='pb-4'>
+          <TextToSpeech text={props.description}/>
+          </div>
+          
           <div className='flex gap-4'>
             <button onClick={togglePanorama} className='px-2 bg-blue-500 py-2 rounded-md text-white hover:bg-blue-400'>View AR</button>
             <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>Buy</button>
