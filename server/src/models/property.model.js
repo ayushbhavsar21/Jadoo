@@ -17,6 +17,10 @@ const propertySchema = new Schema({
         type:String,
         required: true
     },
+    pincode: {
+        type: String,
+        required: true
+    },
     price: {
         type: String,
         required: true

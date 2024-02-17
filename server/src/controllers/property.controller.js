@@ -6,11 +6,11 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const addProperty = asyncHandler(async(req,res)=>{
     
-    const { name, title, description, location, price, area, amenities, contact, size, type} = req.body;
+    const { name, title, description, location, price, area, amenities, contact, size, type, pincode} = req.body;
 
     const user = req.user;
 
-    if (!title || !description || !size || !location || !amenities || !price || !area || !contact || !type ) {
+    if (!title || !description || !size || !location || !amenities || !price || !area || !contact || !type || !pincode) {
         return res.status(400).json(new ApiError(400, "All fields are required!!"));
     }
 
@@ -57,6 +57,7 @@ const addProperty = asyncHandler(async(req,res)=>{
         type,
         area,
         amenities,
+        pincode,
         contact,
         owner: user._id
     })
