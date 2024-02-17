@@ -8,6 +8,8 @@ import Getstarted from './pages/Getstarted';
 import PanoramaViewer from './PanaromaViewer/Panaroma';
 import LogOut from './components/LogOut';
 import PropertyForm from './Owner/PropertyForm';
+import DynamicGoogleMap from './components/Map';
+import LocationForm from './components/LocationForm';
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
       <Route path="/Getstarted" element={<Getstarted/>} />
       <Route path="/Pano" element={<PanoramaViewer/>} />
       <Route path="/Logout" element={<LogOut />} />
+      <Route path='/Maps' element={<DynamicGoogleMap/>}/>
+      <Route path='/Location' element={<LocationForm/>}/>
      </Routes>
      <Footer/>
     </BrowserRouter>
