@@ -23,6 +23,7 @@ function PropertyForm() {
         area: "",
         amenities: "",
         contact: "",
+        pincode: ""
     });
 
     const { token } = useAuth();
@@ -54,6 +55,7 @@ function PropertyForm() {
             formData.append("area", property.area);
             formData.append("amenities", property.amenities);
             formData.append("contact", property.contact);
+            formData.append("pincode", property.pincode);
             formData.append("VRImage", selectedImage);
 
             const response = await fetch(`http://localhost:8000/api/v1/property/addProperty`, {

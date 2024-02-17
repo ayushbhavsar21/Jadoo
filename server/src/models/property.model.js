@@ -36,8 +36,6 @@ const propertySchema = new Schema({
     type: {
         type: String,
         required: true,
-        enum: ['rent', 'sale'], 
-        default: 'rent', 
     },
     area: {
         type: String, 
