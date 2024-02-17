@@ -8,6 +8,7 @@ function Tenant() {
     const {token} = useAuth();
 
     const [properties, setProperties] = useState([]);
+    const [search, setSearch] = useState('');
     
     const getProperties = async()=>{
         try {
@@ -41,6 +42,7 @@ function Tenant() {
                 <div className='relative bottom-40 mx-auto'>
                 <input
                         type="text"
+                        onChange={(e)=>setSearch(e.target.value)}
                         className=" sm:w-[45vw] w-[90vw] h-12 rounded-2xl bg-gray-300 text-[20px] placeholder-black text-black"
                         placeholder=' Search .........'
                     />
@@ -48,7 +50,19 @@ function Tenant() {
             </div>
 
             <div className='bg-tertiary'  >
-              {properties.map(item=>(
+              {properties.filter((tenant) => {
+          const searchLowerCase = search.toLowerCase();
+          return (
+            searchLowerCase === '' ||
+            (tenant.name?.toLowerCase().includes(searchLowerCase) ||
+              tenant.title?.toLowerCase().includes(searchLowerCase) ||
+              tenant.size?.toLowerCase().includes(searchLowerCase) ||
+              tenant.price?.toLowerCase().includes(searchLowerCase)||
+              tenant.location?.toLowerCase().includes(searchLowerCase)||
+              tenant.area?.toLowerCase().includes(searchLowerCase)
+              )
+          );
+        }).map(item=>(
                 <Tenantcard 
                 key={item.id}
                 props={item}
