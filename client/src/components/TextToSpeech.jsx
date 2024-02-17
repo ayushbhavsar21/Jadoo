@@ -17,7 +17,7 @@ const TextToSpeech = ({ text }) => {
   return (
     <div className=''>
       <div className='flex justify-center items-center gap-4'  >
-      <p>Description: {text}</p>
+      <p className='hidden'>Description: {text}</p>
 <div className='flex flex-col gap-2'>
   <button onClick={handleSpeak} className='px-2 py-1 border-2 border-black bg-white rounded-md  font-bold'>Speak</button>
   <button onClick={handleCancel} className='px-2 py-1 border-2 border-black bg-white  rounded-md font-bold'>Stop</button>
