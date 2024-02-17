@@ -19,7 +19,6 @@ function Tenant() {
                 }
             })
             const res = await response.json();
-            console.log(res);
             setProperties(res.data);
 
         } catch (error) {

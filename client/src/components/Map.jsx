@@ -1,15 +1,13 @@
 import React, { useState,useEffect } from 'react';
 
-const DynamicGoogleMap = () => {
+const DynamicGoogleMap = (prop) => {
   
-  const [address, setAddress] = useState('');
-  const [pincode, setPincode] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
   const handleLocation= async () => {
     const apiKey = '8826ed8f468c4bdd9bc7f012edba3fb3'; // Your API key
-    const query = `${address} ${pincode}`.trim();
+    const query = `${prop.address} ${prop.pincode}`.trim();
     const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(query)}&apiKey=${apiKey}`);
     const data = await response.json();
     if (data.features && data.features.length > 0) {

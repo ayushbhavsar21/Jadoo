@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Panorama from '../PanaromaViewer/Panaroma';
 import logo from "../assets/icons8-price-30.png";
 import logo1 from "../assets/icons8-area-chart-30.png";
 import TextToSpeech from '../components/TextToSpeech';
 import googlemap from '../assets/googlemap.png';
+import { useAuth } from '../contexts/AuthContext';
+import DynamicGoogleMap from '../components/Map';
+
 function Tenantcard({props}) {
   const [showPanorama, setShowPanorama] = useState(false);
+
+  const {token} = useAuth();
 
   const togglePanorama = () => {
     setShowPanorama(!showPanorama);
@@ -50,6 +55,11 @@ function Tenantcard({props}) {
             <button className='flex items-center'>
              <img src={googlemap} alt="" />
              <p>View Location in Map</p>
+             <DynamicGoogleMap
+             address={props.location}
+             pincode={props.pincode}
+             />
+             
             </button>
             </div></a>
             <div className='gap-4 flex'>
