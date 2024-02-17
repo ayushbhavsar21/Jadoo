@@ -48,8 +48,9 @@ function Tenantcard({ props }) {
             </div>
           </div>
           <p><strong>Address:</strong> {props.location}</p>
-          <div className='w-[98%]'>
-            <TextToSpeech text={truncateBio(props.description)} />
+          <div className='w-[98%] flex'>
+            Discription:{truncateBio(props.description)}
+            <TextToSpeech text={(props.description)} />
           </div>
 
           <div className='flex w-full justify-between '>
