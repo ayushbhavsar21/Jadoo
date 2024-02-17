@@ -1,7 +1,7 @@
 // OptionChatbot.js
 
 import React, { useState, useEffect } from 'react';
-import chatbot from '../assets/chatbot.png';
+import chatbot from '../assets/Mantri.jpg';
 
 const OptionChatbot = () => {
   const [chatHistory, setChatHistory] = useState([]);
@@ -27,13 +27,13 @@ const OptionChatbot = () => {
       let botResponse = '';
 
       switch (option) {
-        case 'how do i create a new account':
+        case 'how to create a new account':
           botResponse = 'To create a Jadoo Account...\n Click on Get statred button on Navbar , then fill the details and Click on Sign Up ';
           break;
-        case 'is registering on jadoo':
+        case 'is registration free':
           botResponse = 'Registering on Jadoo is free. You can register yourself as Owner,Buyer or Flatmate';
           break;
-        case 'how to find a property on jadoo':
+        case 'how to find a property':
           botResponse = 'To find property ..\n Click on For Tenants button on Navbar,there you will have a search bar where you can fill up the location where you want the property and it will show all the available property up there ';
           break;
 
@@ -112,7 +112,7 @@ const OptionChatbot = () => {
         <div className=" cursor-pointer absolute bottom-0 right-0" onClick={() => setIsExpanded(true)}>
           {/* You can customize the appearance of the small circle here */}
           <div className="h-[9vh] w-[9vh] rounded-full flex justify-center dark:bg-white bg-black">
-            <img className='p-1' src={chatbot} alt="" />
+            <img className='p-1 rounded-full border border-black' src={chatbot} alt="" />
           </div>
         </div>
       ) : (
@@ -127,10 +127,10 @@ const OptionChatbot = () => {
               <div className='flex flex-col items-center justify-center gap-2'>
                 <p className="text-[20px] font-bold font-serif "> Choose an option:</p>
                 <div className="flex gap-2 flex-col">
-                  <button onClick={() => handleOptionClick('how do i create a new account')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif ">How do i create a new account</button>
-                  <button onClick={() => handleOptionClick('is registering on jadoo')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">Is registering on Jadoo</button>
-                  <button onClick={() => handleOptionClick('how to find a property on jadoo')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How to find a property on Jadoo</button>
-                  <button onClick={() => handleOptionClick('how can i contact a property seller')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How can i contact a property seller</button>
+                  <button onClick={() => handleOptionClick('how to create a new account')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif ">How to create a new account</button>
+                  <button onClick={() => handleOptionClick('is registration free')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">Is registration free</button>
+                  <button onClick={() => handleOptionClick('how to find a property')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How to find a property</button>
+                  <button onClick={() => handleOptionClick('how can i contact a property seller')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How can I contact a property seller</button>
                   <button onClick={() => handleOptionClick('when will my property become visible')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">When will my property become visible</button>
                   <button onClick={() => handleOptionClick('what is the payment process')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">What is the payment process</button>
                 </div>
@@ -149,12 +149,12 @@ const OptionChatbot = () => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-2  ">
+          <div className="flex items-center gap-2 relative bottom-4  ">
             <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white text-[12px]" onClick={handleSpeak}>
               Speak
             </button>
             {transcript && (
-              <div className="bg-gray-200 p-2 rounded">{transcript}</div>
+              <div className="bg-gray-200  p-2 rounded">{transcript}</div>
             )}
             <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white text-[12px]" onClick={handleSendQuestion}>
               &#10148;
