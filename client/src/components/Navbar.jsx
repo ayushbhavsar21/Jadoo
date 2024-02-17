@@ -18,12 +18,18 @@ function Navbar() {
                 <div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc57725c-8ab0-43ad-a8c1-24eb43956f47?apiKey=0e2d2b3fdaa848b2ac6dc9f62f11a5f8" alt="Logo" /></div>
                 <div className='md:flex h-[10vh] justify-center items-center gap-12 hidden'>
                     <div className='hover:scale-110'><a href="/">Home</a></div>
-                    <div className='hover:scale-110'><a href="/Tenant">For Tenants</a></div>
-                    <div className='hover:scale-110'><a href="/PropertyForm">For Owners</a></div>
                     {isLoggedIn ? (
+                        <>
+                        <div className='hover:scale-110'><a href="/Tenant">For Tenants</a></div>
+                        <div className='hover:scale-110'><a href="/PropertyForm">For Owners</a></div>
                         <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Logout">Logout</a></button></div>
+                        </>
                     ):(
+                        <>
+                        <div className='hover:scale-110'><a href="/Getstarted">For Tenants</a></div>
+                        <div className='hover:scale-110'><a href="/Getstarted">For Owners</a></div>
                         <div className='border-[1px] bg-black px-3 py-2 text-white rounded-lg hover:scale-110'><button><a href="/Getstarted">Get Started</a></button></div>
+                        </>
                     )}
                 </div>
                 <div className='md:hidden '><button onClick={handleClick} className='text-white rounded-[50%]'><img className='h-[36px] w-[36px]' src={Hamburger} alt="Menu" /></button></div>
