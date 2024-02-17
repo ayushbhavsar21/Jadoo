@@ -27,28 +27,33 @@ const OptionChatbot = () => {
       let botResponse = '';
 
       switch (option) {
-        case 'how to create a mentee account':
-          botResponse = 'To create a Mentee Account... Click on Register button on Navbar , then fill the details and Click on Register ';
+        case 'how do i create a new account':
+          botResponse = 'To create a Jadoo Account...\n Click on Get statred button on Navbar , then fill the details and Click on Sign Up ';
           break;
-        case 'how to become a mentor':
-          botResponse = 'To create a Mentor ... Click on "Become a Mentor" tap on Navbar , then fill the details and Click on Register... After that Click on "Create a Profile" tap in Navbar, fill the form .. And finally your account is created !!  ';
+        case 'is registering on jadoo':
+          botResponse = 'Registering on Jadoo is free. You can register yourself as Owner,Buyer or Flatmate';
           break;
-        case 'find mentors':
-          botResponse = 'For finding Mentor first SignIn or Register as Mentee , Then click on "Find a Mentor" tap on Navbar';
+        case 'how to find a property on jadoo':
+          botResponse = 'To find property ..\n Click on For Tenants button on Navbar,there you will have a search bar where you can fill up the location where you want the property and it will show all the available property up there ';
           break;
-        case 'explore free workshops':
-          botResponse = 'SignIn or Register as Mentee and go to Workshop tab on Navbar, there you will find all the free workshops hosted by top Mentors';
+
+        case 'how can i contact a property seller':
+          botResponse = 'You may contact property owner by clicking on contact seller button visible on listing card. All you need to do is enter your phone number, email id and click submit';
           break;
-        case '1:1 mentorShip code':
-          botResponse = 'When a Mentee Subscribe to a Mentor , Mentor provides and PIN to Mentee which is used to join 1:1 session , this is a very confidential PIN and mentee should preserve it. ';
+        case 'when will my property become visible':
+          botResponse = 'Usually it takes only 1 minute at worst case it takes maximum 5 minutes for a property to get screened and become visible on search ';
           break;
+        case 'what is the payment process':
+          botResponse = 'In Tenants section at every property you will have buy button at the bottom of the home card';
+          break;
+
         default:
-          botResponse = `You selected: ${option}. Here is a link to ${option} page.`;
+          botResponse = `Apologies, but we are currently unable to fulfill your request. Please check back later.`;
       }
 
       // Add bot response to chat history
       setChatHistory([...chatHistory, { type: 'bot', message: botResponse }]);
-      
+
       // Stop loading animation after receiving the response
       setIsLoading(false);
 
@@ -96,7 +101,8 @@ const OptionChatbot = () => {
   }, [chatHistory]);
 
   return (
-    <div className={`font-playfair fixed mb-2 bottom-4 right-4 transition-all ${isExpanded ? 'h-[75%] w-[350px] mb-[1vh]' : 'h-12 w-12'}`}>
+    
+    <div className={`font-playfair z-[100] fixed mb-2 bottom-4 right-4 transition-all ${isExpanded ? 'h-[85vh] w-[350px] mb-[2vh]  ' : 'h-12 w-12'}`}>
       {isExpanded && (
         <button className="absolute top-4 pt-1 pr-1 right-2 text-lg font-bold" onClick={handleCloseChatbot}>
           X
@@ -110,8 +116,8 @@ const OptionChatbot = () => {
           </div>
         </div>
       ) : (
-        <div className="max-w-lg mx-auto mt-4 p-4 border-2 rounded-xl border-black shadow bg-pink-100">
-          
+        <div className="max-w-lg h-[85vh] mx-auto mt-4 p-4 border-2 rounded-xl border-black shadow bg-pink-100">
+
           <div>
             {isLoading && <p>Loading...</p>}
             {selectedOption && (
@@ -119,13 +125,14 @@ const OptionChatbot = () => {
             )}
             {!isLoading && !selectedOption && (
               <div className='flex flex-col items-center justify-center gap-2'>
-                <p className="text-[20px] font-bold">Please choose an option:</p>
+                <p className="text-[20px] font-bold font-serif "> Choose an option:</p>
                 <div className="flex gap-2 flex-col">
-                  <button onClick={() => handleOptionClick('How to Create a Mentee Account')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]">How to Create a Mentee Account</button>
-                  <button onClick={() => handleOptionClick('How to Become a Mentor')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]">How to Become a Mentor</button>
-                  <button onClick={() => handleOptionClick('Find Mentors')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]">Find Mentors</button>
-                  <button onClick={() => handleOptionClick('Explore Free Workshops')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]">Explore Free Workshops</button>
-                  <button onClick={() => handleOptionClick('1:1 MentorShip Code')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]">1:1 MentorShip Code</button>
+                  <button onClick={() => handleOptionClick('how do i create a new account')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif ">How do i create a new account</button>
+                  <button onClick={() => handleOptionClick('is registering on jadoo')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">Is registering on Jadoo</button>
+                  <button onClick={() => handleOptionClick('how to find a property on jadoo')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How to find a property on Jadoo</button>
+                  <button onClick={() => handleOptionClick('how can i contact a property seller')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">How can i contact a property seller</button>
+                  <button onClick={() => handleOptionClick('when will my property become visible')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">When will my property become visible</button>
+                  <button onClick={() => handleOptionClick('what is the payment process')} className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white font-semibold text-[12px] font-serif">What is the payment process</button>
                 </div>
               </div>
             )}
@@ -142,20 +149,21 @@ const OptionChatbot = () => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]" onClick={handleSpeak}>
+          <div className="flex items-center gap-2  ">
+            <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white text-[12px]" onClick={handleSpeak}>
               Speak
             </button>
             {transcript && (
               <div className="bg-gray-200 p-2 rounded">{transcript}</div>
             )}
-            <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-secondary rounded-md text-white text-[12px]" onClick={handleSendQuestion}>
+            <button className="btn p-1 pl-2 pr-2 border-[1.5px] border-black bg-blue-500 rounded-md text-white text-[12px]" onClick={handleSendQuestion}>
               &#10148;
             </button>
           </div>
         </div>
       )}
     </div>
+    
   );
 };
 
