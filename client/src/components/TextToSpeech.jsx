@@ -15,12 +15,12 @@ const TextToSpeech = ({ text }) => {
   };
 
   return (
-    <div className='h-[10vh]'>
+    <div className=''>
       <div className='flex justify-center items-center gap-4'  >
       <p>Description: {text}</p>
 <div className='flex flex-col gap-2'>
-  <button onClick={handleSpeak} className='pl-[1vw] pr-[1vw] pt-2 pb-2 bg-blue-500 hover:bg-blue-400 rounded-md text-white font-bold'>Speak</button>
-  <button onClick={handleCancel} className='pl-[1vw] pr-[1vw] pt-2 pb-2 bg-blue-500 hover:bg-blue-400 rounded-md text-white font-bold'>Stop</button>
+  <button onClick={handleSpeak} className='px-2 py-1 border-2 border-black bg-white rounded-md  font-bold'>Speak</button>
+  <button onClick={handleCancel} className='px-2 py-1 border-2 border-black bg-white  rounded-md font-bold'>Stop</button>
 </div>
 
       </div>

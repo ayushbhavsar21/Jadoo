@@ -3,6 +3,7 @@ import Panorama from '../PanaromaViewer/Panaroma';
 import logo from "../assets/icons8-price-30.png";
 import logo1 from "../assets/icons8-area-chart-30.png";
 import TextToSpeech from '../components/TextToSpeech';
+import googlemap from '../assets/googlemap.png';
 function Tenantcard({props}) {
   const [showPanorama, setShowPanorama] = useState(false);
 
@@ -10,6 +11,11 @@ function Tenantcard({props}) {
     setShowPanorama(!showPanorama);
   };
 
+  const truncateBio = (bio) => {
+    const words = bio.split(' ');
+    return words.slice(0, 5).join(' ') + " . . .";
+  };
+  
   return (
     <div className='w-[90vw] bg-tertiary flex justify-center py-8 mx-auto'>
       <div className='sm:w-85vw w-95vw p-4 bg-white rounded-3xl flex flex-col justify-center gap-8 items-center xl:h-400px font-playfair shadow-2xl xl:flex-row h-auto'>
@@ -17,7 +23,7 @@ function Tenantcard({props}) {
           <img src={props.VRImage} className='h-[350px] w-[380px] rounded-3xl' alt="" />
         </div>
         <div className='xl:w-58% w-90% flex flex-col justify-start items-start xl:justify-start gap-4'>
-          <p className='text-xl'>₹{props.price}</p>
+          <p className='text-2xl font-bold'>{props.size}</p>
           <p className='text-xl font-semibold'>{props.title}</p>
 
           <div className="flex bg-gray-200 p-2 justify-between rounded-md w-full lg:flex-row flex-col">
@@ -31,18 +37,26 @@ function Tenantcard({props}) {
             </div>
             <div className="flex items-center">
               <img src={logo} alt="" />
-              <strong className="md:ml-2">Price:</strong>&nbsp;$120,005
+              <strong className="md:ml-2">Price:</strong>&nbsp;₹{props.price}
             </div>
           </div>
-          <p>Adress: {props.location}</p>
-          <div className='pb-4'>
-          <TextToSpeech text={props.description}/>
+          <p><strong>Address:</strong> {props.location}</p>
+          <div className='w-[98%]'>
+          <TextToSpeech text={truncateBio(props.description)}/>
           </div>
           
-          <div className='flex gap-4'>
-          <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>view in map</button>
+          <div className='flex w-full justify-between '>
+            <div>
+            <button className='flex items-center'>
+             <img src={googlemap} alt="" />
+             <p>View Location in Map</p>
+            </button>
+            </div>
+            <div className='gap-4 flex'>
             <button onClick={togglePanorama} className='px-2 bg-blue-500 py-2 rounded-md text-white hover:bg-blue-400'>View AR</button>
             <button className='px-6 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-400'>Buy</button>
+            </div>
+        
           </div>
         </div>
       </div>
