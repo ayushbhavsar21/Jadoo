@@ -14,17 +14,17 @@ const addProperty = asyncHandler(async(req,res)=>{
         return res.status(400).json(new ApiError(400, "All fields are required!!"));
     }
 
-    const existedProperty = await Property.findOne({
-        $or: [{title}]
-    })
+    // const existedProperty = await Property.findOne({
+    //     $or: [{title}]
+    // })
 
-    if(existedProperty){
-        return res
-        .status(400)
-        .json(
-            new ApiError(400,"Property already Existed!!" )
-        )
-    }
+    // if(existedProperty){
+    //     return res
+    //     .status(400)
+    //     .json(
+    //         new ApiError(400,"Property already Existed!!" )
+    //     )
+    // }
     
     const VRImageLocalPath = req.files?.VRImage[0]?.path;
     
