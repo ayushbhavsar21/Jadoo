@@ -106,6 +106,14 @@ const logInUser = asyncHandler(async(req,res)=>{
 
     const {email, password} = req.body;
 
+    if (!emailValidator.validate(email)) {
+        return res
+        .status(400)
+        .json(
+            new ApiError(400,"Please enter a valid email address" )
+        )
+    }
+
     if(!email){ 
         return res
         .status(400)
