@@ -13,7 +13,7 @@ module.exports = {
         imperialred: "#70002B"
       },
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        playfair: ['Poppins', 'serif'],
         dancing: ['Dancing Script', 'cursive'],
       },
     },
