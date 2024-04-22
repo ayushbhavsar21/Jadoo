@@ -5,7 +5,6 @@ import bodyParser from 'body-parser';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const baseURL = process.env.BASE_URL || `http://localhost:${port}`
 
 app.use(express.json({limit: "16kb"}));
 app.use(bodyParser.urlencoded({extended: true}))
@@ -24,4 +23,4 @@ import propertyRouter from './routes/property.routes.js';
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/property', propertyRouter);
 
-export { app, port, baseURL };
+export { app, port};
