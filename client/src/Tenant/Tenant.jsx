@@ -13,7 +13,7 @@ function Tenant() {
     
     const getProperties = async()=>{
         try {
-            const response = await fetch("http://localhost:8000/api/v1/property/getAllProperties",{
+            const response = await fetch("https://jadoo-server.onrender.com/api/v1/property/getAllProperties" || "http://localhost:8000/api/v1/property/getAllProperties",{
                 method: "GET",
                 headers: {
                     'Authorization': `${token}`

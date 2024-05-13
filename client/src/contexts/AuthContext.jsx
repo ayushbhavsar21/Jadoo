@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
     const userAuthentication = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/users/user', {
+            const response = await fetch('https://jadoo-server.onrender.com/api/v1/users/user' || 'http://localhost:8000/api/v1/users/user', {
                 method: 'GET',
                 headers: {
                     'Authorization': `${token}`

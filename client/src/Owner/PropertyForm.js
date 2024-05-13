@@ -58,7 +58,7 @@ function PropertyForm() {
             formData.append("pincode", property.pincode);
             formData.append("VRImage", selectedImage);
 
-            const response = await fetch(`http://localhost:8000/api/v1/property/addProperty`, {
+            const response = await fetch(`https://jadoo-server.onrender.com/api/v1/property/addProperty` || `http://localhost:8000/api/v1/property/addProperty`, {
                 method: "POST",
                 crossDomain: true,
                 headers: {

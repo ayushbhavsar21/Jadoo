@@ -47,7 +47,7 @@ function Getstarted() {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/users/login`,{
+            const response = await fetch(`https://jadoo-server.onrender.com/api/v1/users/login` || `http://localhost:8000/api/v1/users/login`,{
             method: "POST",
             crossDomain: true,
             headers: {
@@ -83,7 +83,7 @@ function Getstarted() {
       e.preventDefault();
 
       try {
-          const response = await fetch(`http://localhost:8000/api/v1/users/register`, {
+          const response = await fetch(`https://jadoo-server.onrender.com/api/v1/users/register` || `http://localhost:8000/api/v1/users/register`, {
 
               method: "POST",
               headers: {
