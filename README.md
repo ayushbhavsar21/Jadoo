@@ -81,7 +81,8 @@ Start the backend server
 
 ## Screenshots
 
-![App Screenshot](https://assets.devfolio.co/hackathons/996eb8ff28fb463aa2ce28d1729e4122/projects/976a0bca74b14a17a23a7e34c26413e4/2651e227-32db-400b-a2f7-571fcd49338b.jpeg)
+![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/13859e04-d93e-4bd1-abb1-529ac10d6f60.jpeg)
+
 
 ![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2F6c5101c1-ad64-4a98-8011-46fcab02ab92.png&w=1440&q=75)
 
