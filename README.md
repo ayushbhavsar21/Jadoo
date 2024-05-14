@@ -84,11 +84,11 @@ Start the backend server
 ![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/13859e04-d93e-4bd1-abb1-529ac10d6f60.jpeg)
 
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2F6c5101c1-ad64-4a98-8011-46fcab02ab92.png&w=1440&q=75)
+![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/2b3f4746-f355-4f5a-bb44-039a258a480b.jpeg)
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2Feff5a07d-ad20-4dc8-a6c9-3a4597020b86.png&w=1440&q=75)
+![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/fc6461af-dbe9-4bf5-b75d-cacec7a87332.jpeg)
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2F9c4d0b14-deeb-4157-9fb7-3ce4eca36901.png&w=1440&q=75)
+![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/c651cb3c-9897-4b54-8a5d-e128fbc4a3f8.jpeg)
 
 
 
