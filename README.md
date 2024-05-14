@@ -81,13 +81,17 @@ Start the backend server
 
 ## Screenshots
 
-![App Screenshot](https://assets.devfolio.co/hackathons/996eb8ff28fb463aa2ce28d1729e4122/projects/976a0bca74b14a17a23a7e34c26413e4/2651e227-32db-400b-a2f7-571fcd49338b.jpeg)
+![App Screenshot](./images/ss1.png)
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2F6c5101c1-ad64-4a98-8011-46fcab02ab92.png&w=1440&q=75)
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2Feff5a07d-ad20-4dc8-a6c9-3a4597020b86.png&w=1440&q=75)
+![App Screenshot](./images/ss2.png)
 
-![App Screenshot](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F996eb8ff28fb463aa2ce28d1729e4122%2Fprojects%2F976a0bca74b14a17a23a7e34c26413e4%2F9c4d0b14-deeb-4157-9fb7-3ce4eca36901.png&w=1440&q=75)
+![App Screenshot](./images/ss3.png)
+
+![App Screenshot](./images/ss4.png)
+
+![App Screenshot](./images/ss5.png)
+
 
 
 
