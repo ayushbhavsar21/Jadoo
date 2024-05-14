@@ -84,11 +84,14 @@ Start the backend server
 ![App Screenshot](./images/ss1.png)
 
 
-![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/2b3f4746-f355-4f5a-bb44-039a258a480b.jpeg)
+![App Screenshot](./images/ss2.png)
 
-![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/fc6461af-dbe9-4bf5-b75d-cacec7a87332.jpeg)
+![App Screenshot](./images/ss3.png)
 
-![App Screenshot](https://assets.devfolio.co/hackathons/712b33ebd0314a97a2f0326a622c8a64/projects/670d985d16b74015944fa502e1352990/c651cb3c-9897-4b54-8a5d-e128fbc4a3f8.jpeg)
+![App Screenshot](./images/ss4.png)
+
+![App Screenshot](./images/ss5.png)
+
 
 
 
