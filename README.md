@@ -23,6 +23,9 @@ storytelling and offer detailed property insights.
 **• AI Chatbot:** Developed an intelligent AI chatbot to assist customers, providing real-time responses and boosting user engagement.
 
 **• Interactive UI and Responsive Design:** Jadoo boasts a cutting-edge user interface that is both visually appealing and highly intuitive. The responsive design ensures that users have a seamless experience across all devices, whether accessing the platform on a desktop, tablet, or smartphone.
+**• Security and Trust:** Emphasizing security measures and building trust through secure payment gateways is essential for enhancing user confidence and overall satisfaction.
+
+
 
 
 
